@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <title>Ankur Ghosh - AI & Machine Learning </title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#64FFDA', secondary: '#8892B0' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: #0A192F;
+            color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #64FFDA;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active-link::after {
+            width: 100%;
+        }
+
+        .typewriter {
+            overflow: hidden;
+
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.10em;
+            animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #64FFDA
+            }
+        }
+
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(38, 70, 62, 0.1);
+        }
+
+        .skill-progress {
+            height: 6px;
+            background-color: #1E293B;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            background-color: #64FFDA;
+            border-radius: 3px;
+            transition: width 1s ease-in-out;
+        }
+
+        .skill-icon {
+            transition: transform 0.3s;
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .cert-card {
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon {
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #64FFDA;
+        }
+
+        input,
+        textarea {
+            background-color: #1E293B;
+            border: 1px solid #2D3748;
+            color: #e2e8f0;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #64FFDA;
+            outline: none;
+        }
+
+        .custom-checkbox {
+            position: relative;
+            padding-left: 28px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #1E293B;
+            border: 1px solid #2D3748;
+            border-radius: 4px;
+        }
+
+        .custom-checkbox:hover input~.checkmark {
+            border-color: #64FFDA;
+        }
+
+        .custom-checkbox input:checked~.checkmark {
+            background-color: #1E293B;
+            border-color: #64FFDA;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .custom-checkbox input:checked~.checkmark:after {
+            display: block;
+        }
+
+        .custom-checkbox .checkmark:after {
+            left: 7px;
+            top: 3px;
+            width: 6px;
+            height: 10px;
+            border: solid #64FFDA;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .avatar-border {
+            position: relative;
+        }
+
+        .avatar-border::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid #64FFDA;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .custom-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #1E293B;
+            transition: .4s;
+            border-radius: 34px;
+            border: 1px solid #2D3748;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #1E293B;
+            border-color: #64FFDA;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+            background-color: #64FFDA;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-[#0A192F] text-gray-200 min-h-screen">
+    <!-- Navigation -->
+    <header class="fixed w-full bg-[#0A192F]/90 backdrop-blur-sm z-50 border-b border-[#1E293B]">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-['Dancing_Script'] text-primary">Ankur</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home"
+                    class="nav-link active-link text-sm font-medium hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="nav-link text-sm font-medium hover:text-primary transition-colors">About</a>
+                <a href="#projects"
+                    class="nav-link text-sm font-medium hover:text-primary transition-colors">Projects</a>
+                <a href="#skills" class="nav-link text-sm font-medium hover:text-primary transition-colors">Skills</a>
+                <a href="#certifications"
+                    class="nav-link text-sm font-medium hover:text-primary transition-colors">Certifications</a>
+                <a href="#contact" class="nav-link text-sm font-medium hover:text-primary transition-colors">Contact</a>
+                <a href="https://drive.google.com/file/d/17krO6LjfAhzFFCxfv0siqkOW44ePTdD_/view?usp=drive_link" target="_blank" rel="noopener noreferrer" 
+                   class="ml-4 px-4 py-2 border border-primary text-primary hover:bg-primary/10 transition-colors !rounded-button whitespace-nowrap">
+                   Resume
+                </a>
+            </div>
+            <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-200 hover:text-primary">
+                <i class="ri-menu-line ri-lg"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-[#0A192F] border-b border-[#1E293B] px-6 py-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-sm font-medium hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="text-sm font-medium hover:text-primary transition-colors">About</a>
+                <a href="#projects" class="text-sm font-medium hover:text-primary transition-colors">Projects</a>
+                <a href="#skills" class="text-sm font-medium hover:text-primary transition-colors">Skills</a>
+                <a href="#certifications"
+                    class="text-sm font-medium hover:text-primary transition-colors">Certifications</a>
+                <a href="#contact" class="text-sm font-medium hover:text-primary transition-colors">Contact</a>
+                <a href="https://drive.google.com/file/d/17krO6LjfAhzFFCxfv0siqkOW44ePTdD_/view?usp=drive_link"><button 
+                    class="px-4 py-2 border border-primary text-primary hover:bg-primary/10 transition-colors text-center !rounded-button whitespace-nowrap">Resume</button></a>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20"
+        style="background-image: url('https://public.readdy.ai/ai/img_res/c62e07b31122988d74b0830a052e82ae.jpg'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-[#0A192F]/80"></div>
+        <div class="container mx-auto px-6 z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="w-full md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                    <p class="text-primary mono text-sm mb-4">Hi, my name is</p>
+                    <h1 class="text-1xl md:text-6xl font-bold mb-4 text-white typewriter">Ankur Ghosh</h1>
+                    <h2 class="text-2xl md:text-3xl font-medium text-secondary mb-6">I build AI-powered applications and
+                        intelligent systems</h2>
+                    <p class="text-secondary max-w-lg mb-8">Passionate about AI and Machine Learning. Experienced in
+                        backend development and building data-driven applications.</p>
+                    <div
+                        class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                        <a href="#projects"
+                            class="px-6 py-3 bg-primary text-[#0A192F] font-medium hover:bg-primary/90 transition-colors !rounded-button whitespace-nowrap">View
+                            My Work</a>
+                        <a href="#contact"
+                            class="px-6 py-3 border border-primary text-primary hover:bg-primary/10 transition-colors !rounded-button whitespace-nowrap">Get
+                            In Touch</a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 flex justify-center">
+                    <div class="avatar-border rounded-full w-56 h-56 md:w-64 md:h-64 overflow-hidden">
+                        <img src="/home/ankur/Downloads/ChatGPT Image Apr 5, 2025, 01_55_11 AM.png" alt="Ankur Ghosh"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-16">
+                <a href="#about" class="scroll-indicator w-8 h-8 flex items-center justify-center text-primary">
+                    <i class="ri-arrow-down-line ri-lg"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-[#0A192F]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-bold mb-2 text-white reveal">About Me</h2>
+                <div class="w-16 h-1 bg-primary mb-12 reveal"></div>
+                <div class="flex flex-col md:flex-row gap-12 reveal">
+                    <div class="w-full md:w-2/5">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-4 border-2 border-primary rounded-lg transform translate-x-4 translate-y-4">
+                            </div>
+                            <img src="/home/ankur/Downloads/Developer programmer-Программист-разработчик.jpeg"
+                                alt="Ankur Working" class="rounded-lg w-full h-auto relative z-10">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-3/5">
+                        <p class="text-secondary mb-6">
+                            I'm a final-year AIML student with a strong interest in building AI-powered systems and
+                            data-driven applications. I enjoy solving real-world problems using machine learning and
+                            backend technologies.
+                        </p>
+                        <p class="text-secondary mb-6">
+                            My journey began with a curiosity for how intelligent systems work, which led me to pursue
+                            projects in movie recommendation, time series forecasting, and NLP-based data analysis.
+                            These experiences have helped me understand both the technical and practical aspects of AI.
+                        </p>
+                        <p class="text-secondary mb-8">
+                            When I'm not coding or learning something new, I love watching good movies, spending time in
+                            nature, and having meaningful conversations. I'm always exploring ways to grow as a
+                            developer and as a person.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                                <span class="text-secondary">Machine Learning</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                                <span class="text-secondary">Deep Learning</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                                <span class="text-secondary">Natural Language Processing</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                                <span class="text-secondary">Computer Vision</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                                <span class="text-secondary">MLOps & DevOps</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                                <span class="text-secondary">Cloud Architecture</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-[#0A192F]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-bold mb-2 text-white reveal">Featured Projects</h2>
+                <div class="w-16 h-1 bg-primary mb-12 reveal"></div>
+               
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card bg-[#112240] rounded-lg overflow-hidden border border-[#1E293B] reveal"
+                        data-category="ml">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://public.readdy.ai/ai/img_res/2aaa19ee73e21da9e1a7b1902d84f79c.jpg"
+                                alt="Movie Recommendation System" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-white">Movie Recommendation System</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-2 py-1 bg-[#1E293B] text-primary rounded-full">Machine
+                                    Learning</span>
+                                <span class="text-xs px-2 py-1 bg-[#1E293B] text-primary rounded-full">Python</span>
+                                <span class="text-xs px-2 py-1 bg-[#1E293B] text-primary rounded-full">Streamlit</span>
+                                <span
+                                    class="text-xs px-2 py-1 bg-[#1E293B] text-primary rounded-full">Recommendation</span>
+                            </div>
+                            <p class="text-secondary text-sm mb-6">
+                                An interactive movie recommendation system built with Python and Streamlit. It provides
+                                personalized suggestions based on a similarity matrix and displays posters using TMDb
+                                API.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/Ankurghosh2910/movie-recommendation-system" target="_blank"
+                                    class="text-primary hover:text-white transition-colors flex items-center">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                        <i class="ri-github-fill"></i>
+                                    </div>
+                                    <span class="text-sm">Code</span>
+                                </a>
+                                <a href="https://movie-recommendation-system.streamlit.app/" target="_blank"
+                                    class="text-primary hover:text-white transition-colors flex items-center">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                        <i class="ri-external-link-line"></i>
+                                    </div>
+                                    <span class="text-sm">Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+             
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-[#0A192F]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-bold mb-2 text-white reveal">Skills & Expertise</h2>
+                <div class="w-16 h-1 bg-primary mb-12 reveal"></div>
+                <div class="grid grid-cols-1  gap-12 reveal">
+                    <!-- AI & Machine Learning -->
+                    <div class="bg-[#112240] p-8 rounded-lg border border-[#1E293B]">
+                        <div class="flex items-center mb-6">
+                            <div
+                                class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg text-primary mr-4">
+                                <i class="ri-brain-line ri-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">AI & Machine Learning</h3>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-secondary">Deep Learning</span>
+                                    <span class="text-primary">95%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-secondary">Natural Language Processing</span>
+                                    <span class="text-primary">90%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-secondary">Computer Vision</span>
+                                    <span class="text-primary">85%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-secondary">Reinforcement Learning</span>
+                                    <span class="text-primary">80%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-secondary">Time Series Analysis</span>
+                                    <span class="text-primary">85%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="mt-12 reveal">
+                    <h3 class="text-xl font-bold mb-6 text-white">Technologies & Tools</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                        <!-- Python -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-python-fill ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">Python</span>
+                        </div>
+
+                        <!-- TensorFlow -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-tensorflow-fill ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">TensorFlow</span>
+                        </div>
+
+                        <!-- PyTorch -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-fire-fill ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">PyTorch</span>
+                        </div>
+
+                        <!-- Streamlit -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-bar-chart-box-line ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">Streamlit</span>
+                        </div>
+
+                        <!-- Pandas -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-file-search-line ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">Pandas</span>
+                        </div>
+
+                        <!-- Scikit-learn -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-function-line ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">Scikit-learn</span>
+                        </div>
+
+                        <!-- SQL -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-database-2-line ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">SQL</span>
+                        </div>
+
+                        <!-- Docker -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-docker-fill ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">Docker</span>
+                        </div>
+
+                        <!-- Git -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-git-branch-line ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">Git</span>
+                        </div>
+
+                        <!-- Bash -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-terminal-box-line ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">Bash</span>
+                        </div>
+
+                        <!-- AWS -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-amazon-line ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">AWS</span>
+                        </div>
+
+                        <!-- BeautifulSoup -->
+                        <div class="skill-icon flex flex-col items-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-[#112240] rounded-full mb-2">
+                                <i class="ri-brush-line ri-xl text-primary"></i>
+                            </div>
+                            <span class="text-secondary text-sm">BeautifulSoup</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-24 bg-[#0A192F]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-bold mb-2 text-white reveal">Certifications & Achievements</h2>
+                <div class="w-16 h-1 bg-primary mb-12 reveal"></div>
+                <div id="certifications-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+                    <!-- Certification 1 -->
+                    <div class="cert-card bg-[#112240] p-6 rounded-lg border border-[#1E293B]">
+                        <h3 class="text-lg font-bold text-white">Google Cloud Professional ML Engineer</h3>
+                        <p class="text-secondary text-sm">Issued: Jan 2024</p>
+                        <a href="https://example.com/verify-google-cloud" target="_blank" rel="noopener noreferrer"
+                            class="mt-4 inline-block px-4 py-2 bg-primary text-[#0A192F] font-medium hover:bg-primary/90 transition-colors rounded-button">
+                            Verify
+                        </a>
+                    </div>
+                    <!-- Certification 2 -->
+                    <div class="cert-card bg-[#112240] p-6 rounded-lg border border-[#1E293B]">
+                        <h3 class="text-lg font-bold text-white">AWS Certified Machine Learning Specialty</h3>
+                        <p class="text-secondary text-sm">Issued: Mar 2023</p>
+                        <a href="https://example.com/verify-aws" target="_blank" rel="noopener noreferrer"
+                            class="mt-4 inline-block px-4 py-2 bg-primary text-[#0A192F] font-medium hover:bg-primary/90 transition-colors rounded-button">
+                            Verify
+                        </a>
+                    </div>
+                    <!-- Certification 3 -->
+                    <div class="cert-card bg-[#112240] p-6 rounded-lg border border-[#1E293B]">
+                        <h3 class="text-lg font-bold text-white">Microsoft Certified: Azure AI Engineer Associate</h3>
+                        <p class="text-secondary text-sm">Issued: Nov 2023</p>
+                        <a href="https://example.com/verify-azure" target="_blank" rel="noopener noreferrer"
+                            class="mt-4 inline-block px-4 py-2 bg-primary text-[#0A192F] font-medium hover:bg-primary/90 transition-colors rounded-button">
+                            Verify
+                        </a>
+                    </div>
+                    <!-- Certification 4 -->
+                    <div class="cert-card bg-[#112240] p-6 rounded-lg border border-[#1E293B]">
+                        <h3 class="text-lg font-bold text-white">TensorFlow Developer Certificate</h3>
+                        <p class="text-secondary text-sm">Issued: Jul 2022</p>
+                        <a href="https://example.com/verify-tensorflow" target="_blank" rel="noopener noreferrer"
+                            class="mt-4 inline-block px-4 py-2 bg-primary text-[#0A192F] font-medium hover:bg-primary/90 transition-colors rounded-button">
+                            Verify
+                        </a>
+                    </div>
+                    <!-- Certification 5 -->
+                    <div class="cert-card bg-[#112240] p-6 rounded-lg border border-[#1E293B]">
+                        <h3 class="text-lg font-bold text-white">Certified Kubernetes Administrator (CKA)</h3>
+                        <p class="text-secondary text-sm">Issued: Sep 2022</p>
+                        <a href="https://example.com/verify-cka" target="_blank" rel="noopener noreferrer"
+                            class="mt-4 inline-block px-4 py-2 bg-primary text-[#0A192F] font-medium hover:bg-primary/90 transition-colors rounded-button">
+                            Verify
+                        </a>
+                    </div>
+                    <!-- Certification 6 -->
+                    <div class="cert-card bg-[#112240] p-6 rounded-lg border border-[#1E293B]">
+                        <h3 class="text-lg font-bold text-white">Kaggle Competition: Top 3% Finish</h3>
+                        <p class="text-secondary text-sm">Achieved: Dec 2022</p>
+                        <a href="https://example.com/verify-kaggle" target="_blank" rel="noopener noreferrer"
+                            class="mt-4 inline-block px-4 py-2 bg-primary text-[#0A192F] font-medium hover:bg-primary/90 transition-colors rounded-button">
+                            Verify
+                        </a>
+                    </div>
+                    <!-- Additional Certifications (Hidden by Default) -->
+                    <div class="cert-card bg-[#112240] p-6 rounded-lg border border-[#1E293B] hidden">
+                        <h3 class="text-lg font-bold text-white">Additional Certification 1</h3>
+                        <p class="text-secondary text-sm">Issued: Jan 2025</p>
+                        <a href="https://example.com/verify-additional1" target="_blank" rel="noopener noreferrer"
+                            class="mt-4 inline-block px-4 py-2 bg-primary text-[#0A192F] font-medium hover:bg-primary/90 transition-colors rounded-button">
+                            Verify
+                        </a>
+                    </div>
+                    <div class="cert-card bg-[#112240] p-6 rounded-lg border border-[#1E293B] hidden">
+                        <h3 class="text-lg font-bold text-white">Additional Certification 2</h3>
+                        <p class="text-secondary text-sm">Issued: Feb 2025</p>
+                        <a href="https://example.com/verify-additional2" target="_blank" rel="noopener noreferrer"
+                            class="mt-4 inline-block px-4 py-2 bg-primary text-[#0A192F] font-medium hover:bg-primary/90 transition-colors rounded-button">
+                            Verify
+                        </a>
+                    </div>
+                </div>
+                <!-- Show All Button -->
+                <div class="text-center mt-8">
+                    <button id="show-all-btn" class="px-6 py-3 bg-primary text-[#0A192F] font-medium hover:bg-primary/90 transition-colors rounded-button">
+                        Show All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript to toggle visibility of additional certifications
+        const showAllBtn = document.getElementById('show-all-btn');
+        const hiddenCerts = document.querySelectorAll('#certifications-list .hidden');
+
+        showAllBtn.addEventListener('click', () => {
+            hiddenCerts.forEach(cert => cert.classList.toggle('hidden'));
+            showAllBtn.textContent = showAllBtn.textContent === 'Show All' ? 'Show Less' : 'Show All';
+        });
+    </script>
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-[#0A192F]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-2 text-white text-center reveal">Get In Touch</h2>
+                <div class="w-16 h-1 bg-primary mb-6 mx-auto reveal"></div>
+                <p class="text-secondary text-center mb-12 reveal">I'm currently open to new opportunities and
+                    collaborations. Whether you have a question or just want to say hi, I'll do my best to get back to
+                    you!</p>
+
+                <div class="mt-12 flex flex-col items-center reveal">
+
+                    <div class="flex space-x-6">
+                        <a href="mailto:ankurghosh2910@gmail.com"
+                            class="social-icon w-12 h-12 flex items-center justify-center bg-[#112240] rounded-full text-gray-300">
+                            <i class="ri-mail-line ri-lg"></i>
+                        </a>
+                        <a href="https://github.com/Ankurghosh2910" target="_blank"
+                            class="social-icon w-12 h-12 flex items-center justify-center bg-[#112240] rounded-full text-gray-300">
+                            <i class="ri-github-fill ri-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ankur-ghosh-344948246/" target="_blank"
+                            class="social-icon w-12 h-12 flex items-center justify-center bg-[#112240] rounded-full text-gray-300">
+                            <i class="ri-linkedin-fill ri-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-8 bg-[#0A192F] border-t border-[#1E293B]">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-secondary text-sm">© 2025 Ankur Ghosh. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-secondary hover:text-primary transition-colors text-sm">Privacy Policy</a>
+                    <span class="text-[#1E293B]">|</span>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Resume Modal -->
+    <div id="resume-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#112240] rounded-lg w-full max-w-5xl max-h-[90vh] flex flex-col">
+            <div class="flex justify-between items-center p-4 border-b border-[#1E293B]">
+                <h3 class="text-xl font-bold text-white">Ankur Ghosh - Resume</h3>
+                <div class="flex space-x-4">
+                    <button id="download-resume"
+                        class="px-4 py-2 flex items-center text-primary hover:text-white transition-colors">
+                        <i class="ri-download-line mr-2"></i> Download
+                    </button>
+                    <button id="close-resume-modal"
+                        class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white">
+                        <i class="ri-close-line ri-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex-1 overflow-auto p-4">
+                <iframe id="resume-iframe" class="w-full h-full min-h-[70vh] bg-white rounded" src=""
+                    frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 w-12 h-12 flex items-center justify-center bg-primary text-[#0A192F] rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+    <script>
+        // Active navigation link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active-link');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active-link');
+                }
+            });
+            // Back to top button visibility
+            const backToTopButton = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+            // Reveal animations
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (revealTop < window.innerHeight - revealPoint) {
+                    reveal.classList.add('active');
+                }
+            });
+        });
+
+        // Project filtering functionality
+        const projectFilters = document.querySelectorAll('#project-filters button');
+        const projectCards = document.querySelectorAll('.project-card');
+        const viewAllProjectsBtn = document.getElementById('view-all-projects');
+
+        function filterProjects(category) {
+            projectFilters.forEach(filter => {
+                if (filter.dataset.filter === category) {
+                    filter.classList.remove('bg-[#1E293B]', 'text-white');
+                    filter.classList.add('bg-primary', 'text-[#0A192F]');
+                } else {
+                    filter.classList.remove('bg-primary', 'text-[#0A192F]');
+                    filter.classList.add('bg-[#1E293B]', 'text-white');
+                }
+            });
+
+            projectCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        projectFilters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                const category = filter.dataset.filter;
+                filterProjects(category);
+            });
+        });
+
+        viewAllProjectsBtn.addEventListener('click', () => {
+            filterProjects('all');
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        });
+        // Mobile menu toggle
+        const menuButton = document.querySelector('button.md\\:hidden');
+        const mobileMenu = document.querySelector('.md\\:hidden.hidden');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Back to top button
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        // Form submission
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate form submission
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            setTimeout(() => {
+                // Create and show a custom notification instead of alert
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-4 right-4 bg-primary/90 text-[#0A192F] px-6 py-4 rounded shadow-lg z-50 transform translate-y-[-20px] opacity-0 transition-all duration-300';
+                notification.innerHTML = '<div class="flex items-center"><i class="ri-check-line ri-lg mr-2"></i> Thank you for your message! I will get back to you soon.</div>';
+                document.body.appendChild(notification);
+                setTimeout(() => {
+                    notification.classList.remove('translate-y-[-20px]', 'opacity-0');
+                    notification.classList.add('translate-y-0', 'opacity-100');
+                }, 10);
+                setTimeout(() => {
+                    notification.classList.remove('translate-y-0', 'opacity-100');
+                    notification.classList.add('translate-y-[-20px]', 'opacity-0');
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+                form.reset();
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 1500);
+        });
+        // Resume modal functionality
+        const resumeBtn = document.getElementById('resume-btn');
+        const mobileResumeBtn = document.getElementById('mobile-resume-btn');
+        const resumeModal = document.getElementById('resume-modal');
+        const closeResumeModal = document.getElementById('close-resume-modal');
+        const downloadResumeBtn = document.getElementById('download-resume');
+        const resumeIframe = document.getElementById('resume-iframe');
+        // Sample resume URL - replace with actual URL in production
+        const resumeUrl = 'https://example.com/resume.pdf';
+        resumeBtn.addEventListener('click', () => {
+            resumeIframe.src = resumeUrl;
+            resumeModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        mobileResumeBtn.addEventListener('click', () => {
+            resumeIframe.src = resumeUrl;
+            resumeModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            // Close mobile menu when opening resume
+            document.querySelector('.md\\:hidden.bg-\\[\\#0A192F\\]').classList.add('hidden');
+        });
+        closeResumeModal.addEventListener('click', () => {
+            resumeModal.classList.add('hidden');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                resumeIframe.src = '';
+            }, 300);
+        });
+        downloadResumeBtn.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.href = resumeUrl;
+            link.download = 'Alex_Chen_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+        // Close modal when clicking outside the content
+        resumeModal.addEventListener('click', (e) => {
+            if (e.target === resumeModal) {
+                closeResumeModal.click();
+            }
+        });
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !resumeModal.classList.contains('hidden')) {
+                closeResumeModal.click();
+            }
+        });
+    </script>
+</body>
+
+</html>
